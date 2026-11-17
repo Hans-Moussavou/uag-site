@@ -7,34 +7,42 @@ export default function UfrCards() {
       id: "management",
       title: "UFR Management",
       description: "Commerce international, finance et entrepreneuriat.",
-      image: "/ufr-management.jpg",
-      color: "text-ufr-management",
-      borderColor: "bg-ufr-management",
+      image: "/ufr-management.png", 
+      category: "Domaine",
       link: "/formations/management"
     },
     {
       id: "juridique",
       title: "UFR Sciences Juridiques",
       description: "Droit public et privé, sciences politiques et gouvernance.",
-      image: "/ufr-juridique.jpg",
-      color: "text-ufr-juridique",
-      borderColor: "bg-ufr-juridique",
+      image: "/ufr-juridique.png",
+      category: "Domaine",
       link: "/formations/juridique"
     },
     {
       id: "sciences",
       title: "UFR Sciences & Techniques",
       description: "Agropastoral, santé, numérique et environnement.",
-      image: "/ufr-sciences.jpg",
-      color: "text-ufr-sciences",
-      borderColor: "bg-ufr-sciences",
+      image: "/ufr-sciences.png",
+      category: "Domaine",
       link: "/formations/sciences"
     }
   ];
 
   return (
-    <section className="py-20 bg-uag-blanc">
-      <div className="container mx-auto px-6">
+    <section 
+      className="py-20 relative"
+      style={{
+        backgroundColor: '#FAF8F5', // Fond Blanc Parchemin
+        // Création du motif de hachures diagonales (très léger)
+        backgroundImage: 'repeating-linear-gradient(45deg, #e5e7eb 0, #e5e7eb 1px, transparent 0, transparent 50%)',
+        backgroundSize: '20px 20px'
+      }}
+    >
+      {/* Un voile blanc semi-transparent pour adoucir les hachures (facultatif) */}
+      <div className="absolute inset-0 bg-white/60 pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 max-w-6xl relative z-10">
         
         {/* Titre de la section */}
         <div className="text-center mb-16">
@@ -45,42 +53,45 @@ export default function UfrCards() {
         </div>
 
         {/* Grille des cartes */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {ufrs.map((ufr) => (
             <Link 
               key={ufr.id} 
               href={ufr.link}
-              className="group relative block h-[450px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 bg-gray-900"
+              className="group flex flex-col bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border border-gray-100"
             >
-              {/* Image de fond */}
-              <div className="absolute inset-0">
-                <Image
-                  src={ufr.image}
-                  alt={ufr.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                {/* Dégradé ajusté : plus sombre en bas pour le texte, transparent en haut pour l'image */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+              {/* Partie Image */}
+              <div className="relative h-[500px] w-full bg-[#f4f4f4] flex items-end justify-center overflow-hidden">
+                <div className="relative w-full h-[110%] transition-transform duration-500 group-hover:scale-110 -mb-4">
+                  <Image
+                    src={ufr.image}
+                    alt={ufr.title}
+                    fill
+                    className="object-contain object-bottom"
+                  />
+                </div>
               </div>
 
-              {/* Contenu de la carte */}
-              <div className="absolute bottom-0 left-0 w-full p-6 text-white">
+              {/* Partie Texte */}
+              <div className="p-8 pt-6 flex flex-col flex-grow bg-white">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="w-8 h-0.5 bg-uag-or"></span>
+                  <span className="text-sm text-gray-500 font-medium">{ufr.category}</span>
+                </div>
                 
-                {/* Petite ligne de couleur UFR */}
-                <div className={`w-12 h-1 mb-4 ${ufr.borderColor} transition-all duration-300 group-hover:w-20`}></div>
-                
-                <h3 className="text-2xl font-bold font-serif mb-2 text-white">
+                <h3 className="text-2xl font-bold text-black uppercase mb-4 tracking-wide">
                   {ufr.title}
                 </h3>
                 
-                <p className="text-sm text-gray-200 mb-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                <p className="text-gray-600 text-sm mb-6 flex-grow">
                   {ufr.description}
                 </p>
-                
-                <div className="flex items-center text-sm font-bold text-white group-hover:text-uag-or transition-colors">
-                  En Savoir Plus
-                  <span className="ml-2 transform group-hover:translate-x-2 transition-transform duration-300">→</span>
+
+                <div className="mt-auto pt-4 border-t border-gray-200">
+                  <span className="inline-flex items-center text-uag-or font-bold group-hover:text-uag-ocre transition-colors">
+                    En Savoir Plus
+                    <span className="ml-2 transform group-hover:translate-x-2 transition-transform duration-300">›</span>
+                  </span>
                 </div>
               </div>
             </Link>
