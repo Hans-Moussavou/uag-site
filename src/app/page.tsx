@@ -39,6 +39,49 @@ export default function Home() {
       {/* LES UFR */}
       <UfrCards />
 
+      {/* VIE ETUDIANTE */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-uag-bleu mb-4">
+              La Vie sur le Campus
+            </h2>
+            <div className="h-1 w-24 mx-auto bg-uag-or"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center p-6 border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-16 h-16 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-2xl mb-4 text-uag-bleu">
+                🎓
+              </div>
+              <h3 className="font-bold text-lg text-uag-bleu mb-2">Système LMD</h3>
+              <p className="text-sm text-gray-600">Une organisation en semestres et crédits (CECT) reconnue dans tout l'espace CAMES.</p>
+            </div>
+
+            <div className="text-center p-6 border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-16 h-16 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-2xl mb-4 text-uag-bleu">
+                🤝
+              </div>
+              <h3 className="font-bold text-lg text-uag-bleu mb-2">Bourses & Aides</h3>
+              <p className="text-sm text-gray-600">Des dispositifs d'accompagnement financier sont prévus pour soutenir les étudiants.</p>
+            </div>
+
+            <div className="text-center p-6 border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-16 h-16 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-2xl mb-4 text-uag-bleu">
+                📚
+              </div>
+              <h3 className="font-bold text-lg text-uag-bleu mb-2">Documentation</h3>
+              <p className="text-sm text-gray-600">Accès à la bibliothèque universitaire et aux ressources numériques pour vos recherches.</p>
+            </div>
+          </div>
+
+          <div className="mt-12 bg-uag-blanc p-8 rounded-2xl border border-gray-200 text-center text-sm text-gray-600">
+            <p className="font-bold text-uag-bleu mb-2">Un cadre de vie strict et bienveillant</p>
+            <p>L'UAG est un espace de socialisation et d'épanouissement. Le respect des règles de civisme, d'assiduité et d'intégrité est le gage de votre réussite. La tenue correcte et le respect mutuel sont exigés sur le campus.</p>
+          </div>
+        </div>
+      </section>
+
       {/* BANDEAU CTA FINAL */}
       <section className="bg-gradient-to-r from-uag-bleu via-[#2C477A] to-uag-bleu py-20 text-center px-4 relative overflow-hidden">
         <div className="relative z-10 container mx-auto">
