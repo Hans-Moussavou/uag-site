@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
+import PageTransition from "@/components/PageTransition"; // Import du composant
 
 export const metadata: Metadata = {
   title: "UAG - Université Africaine du Gabon",
@@ -18,9 +18,10 @@ export default function RootLayout({
     <html lang="fr">
       <body className="min-h-screen flex flex-col">
         <Header />
-        <main className="flex-grow">
+        {/* On enveloppe le contenu principal avec PageTransition */}
+        <PageTransition>
           {children}
-        </main>
+        </PageTransition>
         <Footer />
       </body>
     </html>

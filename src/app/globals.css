@@ -19,3 +19,8 @@ body {
   background-color: var(--color-uag-blanc);
   color: var(--color-uag-gris);
 }
+
+/* Défilement fluide sur tout le site */
+html {
+  scroll-behavior: smooth;
+}
