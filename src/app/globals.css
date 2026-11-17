@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-uag-or: #C59B27;
+  --color-uag-bleu: #1A2B4C;
+  --color-uag-ocre: #8C6214;
+  --color-uag-blanc: #FAF8F5;
+  --color-uag-gris: #2D3139;
+
+  --color-ufr-management: #4B6587;
+  --color-ufr-juridique: #6D213C;
+  --color-ufr-sciences: #1E6B52;
+
+  --font-serif: Georgia, Cinzel, serif;
+  --font-sans: "Segoe UI", Montserrat, "Plus Jakarta Sans", sans-serif;
+}
+
+body {
+  background-color: var(--color-uag-blanc);
+  color: var(--color-uag-gris);
+}
