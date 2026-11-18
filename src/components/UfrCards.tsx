@@ -34,12 +34,12 @@ export default function UfrCards() {
       className="py-20 relative"
       style={{
         backgroundColor: '#FAF8F5', // Fond Blanc Parchemin
-        // Création du motif de hachures diagonales (très léger)
+        // Réintégration des hachures diagonales
         backgroundImage: 'repeating-linear-gradient(45deg, #e5e7eb 0, #e5e7eb 1px, transparent 0, transparent 50%)',
         backgroundSize: '20px 20px'
       }}
     >
-      {/* Un voile blanc semi-transparent pour adoucir les hachures (facultatif) */}
+      {/* Voile blanc semi-transparent pour adoucir les hachures */}
       <div className="absolute inset-0 bg-white/60 pointer-events-none"></div>
 
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
@@ -60,9 +60,12 @@ export default function UfrCards() {
               href={ufr.link}
               className="group flex flex-col bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border border-gray-100"
             >
-              {/* Partie Image */}
-              <div className="relative h-[500px] w-full bg-[#f4f4f4] flex items-end justify-center overflow-hidden">
-                <div className="relative w-full h-[110%] transition-transform duration-500 group-hover:scale-110 -mb-4">
+              
+              {/* Partie Image (Cadre diminué à 380px) */}
+              <div className="relative h-[380px] w-full bg-[#f4f4f4] flex items-end justify-center overflow-hidden">
+                
+                {/* L'image est calée en bas et prend 95% de la hauteur */}
+                <div className="relative w-full h-[95%] transition-transform duration-500 group-hover:scale-105">
                   <Image
                     src={ufr.image}
                     alt={ufr.title}
@@ -70,10 +73,13 @@ export default function UfrCards() {
                     className="object-contain object-bottom"
                   />
                 </div>
+
+                {/* L'effet de vague en bas */}
+                <div className="absolute -bottom-2 left-0 w-full h-8 bg-white rounded-t-[50%] scale-x-150"></div>
               </div>
 
               {/* Partie Texte */}
-              <div className="p-8 pt-6 flex flex-col flex-grow bg-white">
+              <div className="p-8 pt-4 flex flex-col flex-grow bg-white relative z-10">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="w-8 h-0.5 bg-uag-or"></span>
                   <span className="text-sm text-gray-500 font-medium">{ufr.category}</span>

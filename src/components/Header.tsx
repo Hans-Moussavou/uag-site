@@ -17,11 +17,11 @@ export default function Header() {
 
   return (
     <header className="bg-uag-bleu text-white sticky top-0 z-50 shadow-md">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div className="container mx-auto px-3 md:px-4 py-2 flex justify-between items-center">
         
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group z-50">
-          <div className="w-14 h-14 relative flex-shrink-0">
+        {/* Logo et Nom */}
+        <Link href="/" className="flex items-center gap-2 md:gap-3 group z-50">
+          <div className="w-12 h-12 md:w-14 md:h-14 relative flex-shrink-0">
             <Image 
               src="/logo-uag.png" 
               alt="Logo UAG" 
@@ -30,14 +30,20 @@ export default function Header() {
               priority 
             />
           </div>
-          <div className="flex flex-col border-l-2 border-uag-or pl-3 py-1">
-            <span className="font-serif font-bold text-xl tracking-widest uppercase leading-none text-white">UAG</span>
-            <span className="text-[9px] text-uag-or tracking-wider uppercase hidden sm:block mt-1">Université Africaine<br/>du Gabon</span>
+          
+          <div className="flex flex-col border-l-2 border-uag-or pl-2 md:pl-3 py-1">
+            <span className="font-serif font-bold text-lg md:text-xl tracking-widest uppercase leading-none text-white">
+              UAG
+            </span>
+            {/* Le texte est maintenant TOUJOURS visible, avec une taille adaptée */}
+            <span className="text-[8px] md:text-[10px] text-uag-or tracking-wider uppercase mt-1 leading-tight">
+              Université Africaine<br/>du Gabon
+            </span>
           </div>
         </Link>
 
         {/* Navigation Desktop */}
-        <nav className="hidden md:flex items-center gap-4 lg:gap-6 font-sans text-sm font-medium">
+        <nav className="hidden lg:flex items-center gap-4 lg:gap-6 font-sans text-sm font-medium">
           {navLinks.map((link) => (
             <Link key={link.name} href={link.href} className="hover:text-uag-or transition-colors">
               {link.name}
@@ -46,7 +52,7 @@ export default function Header() {
         </nav>
 
         {/* Bouton Candidater Desktop */}
-        <div className="hidden md:block ml-4">
+        <div className="hidden lg:block ml-4">
           <Link href="/admission" className="px-5 py-2.5 bg-gradient-to-r from-[#F2D06B] via-uag-or to-uag-ocre text-uag-bleu font-bold rounded-full shadow-md hover:scale-105 transition-transform text-sm whitespace-nowrap">
             Candidater
           </Link>
@@ -54,7 +60,7 @@ export default function Header() {
 
         {/* Bouton Hamburger Mobile */}
         <button 
-          className="md:hidden z-50 p-2 text-white focus:outline-none"
+          className="lg:hidden z-50 p-2 text-white focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -72,7 +78,7 @@ export default function Header() {
       </div>
 
       {/* Menu Mobile Déroulant */}
-      <div className={`fixed inset-0 bg-uag-bleu z-40 transform transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"} md:hidden flex flex-col pt-24 px-6`}>
+      <div className={`fixed inset-0 bg-uag-bleu z-40 transform transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"} lg:hidden flex flex-col pt-24 px-6`}>
         <nav className="flex flex-col space-y-4 font-sans text-lg font-semibold uppercase tracking-wider">
           {navLinks.map((link) => (
             <Link 
